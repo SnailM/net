@@ -16,24 +16,5 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        testHttpRequest();
-    }
-
-    private void testHttpRequest() {
-        LoginModel loginModel = new LoginModel();
-        loginModel.getBoot("getBoot",
-                "https://hcapihongdaotech.bestv.com.cn/api/device/boot/serverConfig",
-                "YQX_HOMESCHOOL_20191021",
-                new IBaseCallback<BootResp>() {
-                    @Override
-                    public void onResult(BootResp result) {
-                        Log.d("mxj", "success " + result.getServerConfigList().get(0).getServerKey());
-                    }
-
-                    @Override
-                    public void onError(ApiException throwable) {
-                        Log.d("mxj", "error " + throwable.getMessage());
-                    }
-                });
     }
 }
